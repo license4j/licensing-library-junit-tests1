@@ -1,5 +1,6 @@
-package com.license4j;
+package com.example;
 
+import com.license4j.License;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Locale;
