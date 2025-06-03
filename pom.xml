@@ -7,7 +7,7 @@
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>8</maven.compiler.release>
+        <maven.compiler.release>21</maven.compiler.release>
         <exec.mainClass>com.example.Main</exec.mainClass>
     </properties>
     
@@ -51,14 +51,14 @@
         <dependency>
             <groupId>com.license4j</groupId>
             <artifactId>licensing-library</artifactId>
-            <version>5.0.2</version>
+            <version>5.0.3</version>
         </dependency>
         
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.11.4</version>
-            <scope>compile</scope>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

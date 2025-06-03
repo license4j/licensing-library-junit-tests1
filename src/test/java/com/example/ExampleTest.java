@@ -187,6 +187,8 @@ class ExampleTest {
     @Test
     @DisplayName("Any Valid Feature Given Test")
     void feature02() {
+        // the given has a defined feature "AnyFeatureKey=anything1"
+        
         String anyProductFeatureValue = "anything1";
 
         License.getInstance().getBuilder()
@@ -209,6 +211,8 @@ class ExampleTest {
     @Test
     @DisplayName("Any Invalid Feature Given Test")
     void feature03() {
+        // the given has a defined feature "AnyFeatureKey=anything1"
+        
         String anyProductFeatureValue = "anything2";
 
         License.getInstance().getBuilder()
@@ -272,6 +276,7 @@ class ExampleTest {
     @Test
     @DisplayName("Valid Product Edition Test")
     void edition01() {
+        // the given license has a feature "my-product-edition=Professional"
         String myProductEdition = "Professional";
 
         License.getInstance().getBuilder()
@@ -294,6 +299,7 @@ class ExampleTest {
     @Test
     @DisplayName("Invalid Product Edition Test")
     void edition02() {
+        // the given license has a feature "my-product-edition=Professional"
         String myProductEdition = "Standard";
 
         License.getInstance().getBuilder()
@@ -314,6 +320,8 @@ class ExampleTest {
     @Test
     @DisplayName("Valid Product Version Test")
     void version01() {
+        // the given license has a feature "my-product-version=1.99"
+        // so all version numbers less than or equal to 1.99 will be valid.
         String myProductVersion = "1.1";
 
         License.getInstance().getBuilder()
@@ -336,6 +344,8 @@ class ExampleTest {
     @Test
     @DisplayName("Invalid Product Version Test")
     void version02() {
+        // the given license has a feature "my-product-version=1.99"
+        // so all version numbers equal or greater than  1.99 will be invalid.
         String myProductVersion = "2.0";
 
         License.getInstance().getBuilder()
@@ -356,6 +366,8 @@ class ExampleTest {
     @Test
     @DisplayName("Valid CPU Core Count Test")
     void core01() {
+        // the given license has a feature "my-product-core-32=32"
+        // so license will be valid if core count is less than or equal to 32
         int core = License.getInstance().getSystemInformation().getCPUCoreCount();
 
         License.getInstance().getBuilder()
@@ -378,6 +390,8 @@ class ExampleTest {
     @Test
     @DisplayName("Invalid CPU Core Count Test")
     void core02() {
+        // the given license has a feature "my-product-core-1=1"
+        // so license will be invalid if core count is greater than 1
         int core = License.getInstance().getSystemInformation().getCPUCoreCount();
 
         License.getInstance().getBuilder()
@@ -452,6 +466,7 @@ class ExampleTest {
     @Test
     @DisplayName("License Disabled on the License Server")
     void disabled01() {
+        // the given license key is disabled on the server
         License.getInstance().getBuilder()
                 .product(PRODUCT_HASH1)
                 .build();
@@ -468,6 +483,7 @@ class ExampleTest {
     @Test
     @DisplayName("Product Disabled on the License Server")
     void disabled02() {
+        // the product is disabled on license server
         License.getInstance().getBuilder()
                 .product(PRODUCT_HASH2)
                 .build();
@@ -485,6 +501,7 @@ class ExampleTest {
     @Test
     @DisplayName("Expired License")
     void expired01() {
+        // the given license key expired
         License.getInstance().getBuilder()
                 .product(PRODUCT_HASH1)
                 .build();
@@ -501,6 +518,7 @@ class ExampleTest {
     @Test
     @DisplayName("Invalidate License")
     void invalidate01() {
+        // it validates (activates) the license first, then invalidates (deactivates)
         License.getInstance().getBuilder()
                 .product(PRODUCT_HASH1)
                 .build();
@@ -543,6 +561,7 @@ class ExampleTest {
     @Test
     @DisplayName("Validate with a Custom Fingerprint 1")
     void customFingerprint01() {
+        // any custom hardware ID canbe used while validating the license
         License.getInstance().getBuilder()
                 .product(PRODUCT_HASH1)
                 .customFingerprint("SOME-GENERATED-FINGERPRINT-UNIQUE-DEVICE-OR-USER-ANYTHING-IDENTIFIER")
@@ -564,6 +583,7 @@ class ExampleTest {
     @Test
     @DisplayName("Validate with a Custom Fingerprint 2")
     void customFingerprint02() {
+        // any custom hardware ID canbe used while validating the license
         License.getInstance().getBuilder()
                 .product(PRODUCT_HASH1)
                 .customFingerprint("A-FINGERPRINT")
